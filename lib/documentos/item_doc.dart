@@ -37,7 +37,10 @@ class _ItemDocState extends State<ItemDoc> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               //Text(" ${widget.index + 1}. ",style: TextStyle(fontWeight: FontWeight.bold),),
-              Text(" ${widget.docName}",style: TextStyle(fontWeight: FontWeight.bold),),
+              Text(
+                " ${widget.docName}",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ],
           ),
           Row(
@@ -55,6 +58,12 @@ class _ItemDocState extends State<ItemDoc> {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
+                      title: Text(
+                        "Eliminar archivo",
+                        style: TextStyle(fontStyle: FontStyle.normal),
+                      ),
+                      content: Text(
+                          "Esta apunto de eliminar un archivo, esta se eliminara totalmente de la base de datos"),
                       actions: <Widget>[
                         MaterialButton(
                             child: Text("Cancelar"),

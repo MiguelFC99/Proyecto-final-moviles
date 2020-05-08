@@ -28,19 +28,22 @@ class SaveDataEvent extends DocsEvent {
 }
 
 class ChooseDocs extends DocsEvent {
-
-   @override
+  @override
   List<Object> get props => [];
 }
 
 class GuardarPress extends DocsEvent {
-  
   @override
   List<Object> get props => [];
 }
 
 class CargarDocsEvent extends DocsEvent {
-  
+  final File docsOtherApp;
+
+  CargarDocsEvent({
+    @required this.docsOtherApp,
+  });
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [docsOtherApp];
 }

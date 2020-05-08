@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:proyecto_app_moviles/authentication/authentication_bloc/authentication_bloc.dart';
 import 'package:proyecto_app_moviles/home/home_page.dart';
 import 'package:proyecto_app_moviles/utils/constants.dart';
+import 'package:proyecto_app_moviles/login/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         }
       },
       child: Scaffold(
-        backgroundColor: PRIMARY_COLOR,
+        backgroundColor: LOGIN_COLOR,
         body: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -63,6 +64,22 @@ class _LoginPageState extends State<LoginPage> {
         _loginButton(),
         SizedBox(height: 8),
         _googleButton(),
+        SizedBox(height: 13),
+        GestureDetector(
+          child: Container(
+              child: Text(
+            "     Registrarse",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),),
+        onTap: (){
+          Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => RegisterPage()),
+                        );
+        },),
       ],
     );
   }
@@ -73,10 +90,10 @@ class _LoginPageState extends State<LoginPage> {
       controller: _usernameController,
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color:  Colors.black),
+          borderSide: BorderSide(color: Colors.white),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color:  Colors.black),
+          borderSide: BorderSide(color: Colors.white),
         ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -92,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
           color: Color(0xff94d500),
         ),
         labelText: "Usuario",
-        labelStyle: TextStyle(color: Colors.black),
+        labelStyle: TextStyle(color: Colors.white),
       ),
       validator: (contenido) {
         if (contenido.isEmpty) {
@@ -111,10 +128,10 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: _isTextHidden,
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color:  Colors.black),
+          borderSide: BorderSide(color: Colors.white),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color:  Colors.black),
+          borderSide: BorderSide(color: Colors.white),
         ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -130,11 +147,11 @@ class _LoginPageState extends State<LoginPage> {
           color: Color(0xff94d500),
         ),
         labelText: "Password",
-        labelStyle: TextStyle(color: Colors.black),
+        labelStyle: TextStyle(color: Colors.white),
         suffixIcon: IconButton(
           icon: _isTextHidden
-              ? Icon(Icons.visibility_off, color: Colors.black)
-              : Icon(Icons.visibility, color: Colors.black),
+              ? Icon(Icons.visibility_off, color: Colors.white)
+              : Icon(Icons.visibility, color: Colors.white),
           onPressed: () {
             setState(() {
               _isTextHidden = !_isTextHidden;

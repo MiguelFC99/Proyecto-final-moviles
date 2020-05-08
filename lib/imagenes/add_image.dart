@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:proyecto_app_moviles/imagenes/bloc/images_bloc.dart';
+import 'package:proyecto_app_moviles/utils/constants.dart';
 
 class AddImage extends StatefulWidget {
   AddImage({Key key}) : super(key: key);
@@ -27,9 +28,14 @@ class _AddImageState extends State<AddImage> {
   Widget build(BuildContext context) {
     addImageBloc = BlocProvider.of(context);
     return Scaffold(
+        backgroundColor: BACK_COLOR2,
         appBar: AppBar(
-            backgroundColor: Color(0xFFC6D8E1),
-            title: Text("Seleccionar imagen")),
+            leading: BackButton(color: Colors.white),
+            backgroundColor: BAR_COLOR,
+            title: Text(
+              "Seleccionar imagen",
+              style: TextStyle(color: COLOR_WHI),
+            )),
         body: BlocBuilder<ImagesBloc, ImagesState>(
           builder: (context, state) {
             if (state is ImageGallery) {
@@ -59,32 +65,52 @@ class _AddImageState extends State<AddImage> {
                             : Container(
                                 height: 150,
                                 width: 150,
-                                child: Placeholder(
-                                  fallbackHeight: 150,
-                                  fallbackWidth: 150,
+                                child: Image.asset(
+                                  ImagenView,
+                                  height: 200,
+                                  width: 200,
                                 ),
                               ),
                         SizedBox(height: 48),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            Material(
-                              shape: CircleBorder(),
-                              elevation: 3,
-                              child: IconButton(
-                                icon: Icon(Icons.camera),
-                                onPressed: () {
-                                  BlocProvider.of<ImagesBloc>(context)
-                                      .add(ChooseImage(bandera: true));
-                                },
-                              ),
+                            Column(
+                              children: <Widget>[
+                                Material(
+                                  shape: CircleBorder(),
+                                  elevation: 3,
+                                  color: BUTTON_COLOR,
+                                  child: IconButton(
+                                    icon: Icon(Icons.camera),
+                                    onPressed: () {
+                                      BlocProvider.of<ImagesBloc>(context)
+                                          .add(ChooseImage(bandera: true));
+                                    },
+                                  ),
+                                  
+                                ),
+                                SizedBox(height: 5,),
+                                Text("Cámara")
+                              ],
                             ),
-                            IconButton(
-                              icon: Icon(Icons.image),
-                              onPressed: () {
-                                BlocProvider.of<ImagesBloc>(context)
-                                    .add(ChooseImage(bandera: false));
-                              },
+                            Column(
+                              children: <Widget>[
+                                Material(
+                                  shape: CircleBorder(),
+                                  elevation: 3,
+                                  color: BUTTON_COLOR,
+                                  child: IconButton(
+                                    icon: Icon(Icons.image),
+                                    onPressed: () {
+                                      BlocProvider.of<ImagesBloc>(context)
+                                          .add(ChooseImage(bandera: false));
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: 5,),
+                                Text("Galería")
+                              ],
                             ),
                           ],
                         ),
@@ -102,6 +128,7 @@ class _AddImageState extends State<AddImage> {
                               child: _banSave
                                   ? RaisedButton(
                                       child: Text("Guardar"),
+                                      color: BUTTON_SAVE,
                                       onPressed: () {
                                         // TODO aqui esta el llamado de guardado al bloc
                                         //  BlocProvider.of<ApuntesBloc>(context).add(GuardarPress());
@@ -116,7 +143,12 @@ class _AddImageState extends State<AddImage> {
                                     )
                                   : Center(
                                       child: Text(
-                                          "Tome una foto o seleccione imagen de la galeria")),
+                                      "Tome una foto o seleccione imagen de la galería",
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 18),
+                                      textAlign: TextAlign.center,
+                                    )),
                             )
                           ],
                         ),

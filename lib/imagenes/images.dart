@@ -26,8 +26,8 @@ class _ImagesState extends State<Images> {
     return Scaffold(
       backgroundColor: PRIMARY_COLOR,
       appBar: AppBar(
-        backgroundColor: Color(0xFF9AB3BE),
-        title: Text("Imágenes"),
+        backgroundColor: BAR_COLOR,
+        title: Center(child: Text("Imágenes almacenadas",style: TextStyle(color: Colors.white),)),
       ),
       floatingActionButton: FloatingActionButton.extended(
         heroTag: UniqueKey(),
@@ -127,7 +127,10 @@ class _ImagesState extends State<Images> {
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
                         child: Text(
-                          "No hay imagenes cargadas en la base de datos,\n agregue imagen",
+                          "No hay imágenes cargadas en la base de datos,\n agregue algunas",style: TextStyle(
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 19),
+                                      textAlign: TextAlign.center,
                         ),
                       ),
                   );
@@ -142,6 +145,8 @@ class _ImagesState extends State<Images> {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
+              title: Text("Eliminar imagen",style: TextStyle(fontStyle: FontStyle.normal),),
+              content: Text("Esta apunto de eliminar una imagen, esta se eliminara totalmente de la base de datos"),
               actions: <Widget>[
                 MaterialButton(
                     child: Text("Cancelar"),

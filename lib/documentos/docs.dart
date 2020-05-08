@@ -31,8 +31,8 @@ class _DocsState extends State<Docs> {
     return Scaffold(
       backgroundColor: PRIMARY_COLOR,
       appBar: AppBar(
-        backgroundColor: Color(0xFF9AB3BE),
-        title: Text("My Folder"),
+        backgroundColor: BAR_COLOR,
+        title: Center(child: Text("Archivos almacenados",style: TextStyle(color: Colors.white),)),
       ),
       floatingActionButton: FloatingActionButton.extended(
         heroTag: UniqueKey(),
@@ -97,7 +97,7 @@ class _DocsState extends State<Docs> {
                   child: CircularProgressIndicator(),
                 );
               }
-              return bloc.getdocsList.length != null
+              return bloc.getdocsList.length != null && bloc.getdocsList.length != 0
                   ? ListView.builder(
                       itemCount: bloc.getdocsList.length == null
                           ? 0
@@ -124,7 +124,10 @@ class _DocsState extends State<Docs> {
                     padding: const EdgeInsets.all(8.0),
                     child: Center(
                         child: Text(
-                            "No hay archivos almacenados, agregue un nuevo archivo"),
+                            "No hay archivos almacenados, agregue un nuevo archivo",style: TextStyle(
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 19),
+                                      textAlign: TextAlign.center,),
                       ),
                   );
             },

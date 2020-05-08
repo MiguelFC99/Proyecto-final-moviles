@@ -16,7 +16,12 @@ const String PROFILE_PICTURE =
 
 
 // app
-const PRIMARY_COLOR = const Color(0xFFB4F5FF);
+const PRIMARY_COLOR = const Color(0xFFceddef);
+const BAR_COLOR = const Color(0xFF1f3c88);
+const BUTTON_COLOR = const Color(0xFF64b2cd);
+const BACK_COLOR2 = const Color(0xFFeeeeee);
+const BUTTON_SAVE = const Color(0xFFFCF3CF);
+const LOGIN_COLOR = const Color(0xFF5478D8);
 /*const COLOR_2 = const Color(0xFF8B8175);
 const COLOR_3 = const Color(0xFFBCB0A1);
 const COLOR_4 = const Color(0xFFFABF7C);
@@ -26,3 +31,4 @@ const COLOR_WHI = Colors.white;
 const String LOGO_APP = "assets/images/logo.png";
 const String DocAppImage = "assets/images/docApp.png";
 const String DocPreview = "assets/images/archive.png";
+const String ImagenView = "assets/images/imagen.png";

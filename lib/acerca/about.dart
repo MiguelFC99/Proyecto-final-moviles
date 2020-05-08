@@ -34,8 +34,8 @@ class _AboutState extends State<About> {
                 return Scaffold(
                   backgroundColor: PRIMARY_COLOR,
                   appBar: AppBar(
-                    backgroundColor: Color(0xFF9AB3BE),
-                    title: Text(SETTINGS_TITLE),
+                    backgroundColor: BAR_COLOR,
+                    title: Text(SETTINGS_TITLE,style: TextStyle(color: COLOR_WHI),),
                     actions: <Widget>[],
                   ),
                   body: Padding(
@@ -98,7 +98,7 @@ class _AboutState extends State<About> {
                               children: <Widget>[
                                 Expanded(
                                   child: MaterialButton(
-                                    color: Colors.blueGrey,
+                                    color: Colors.indigo,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),

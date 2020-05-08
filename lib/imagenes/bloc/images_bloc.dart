@@ -71,23 +71,14 @@ class ImagesBloc extends Bloc<ImagesEvent, ImagesState> {
           errorMessageGallery: "Ha ocurrido un error con la imagen.",
         );
       }
-    } /*else if (event is GuardarPress) {
-      String url1 = await _uploadFileApp();
-      bool saved = await _saveApunteApp(url1, imageRuta2);
-      if (saved) {
-        await _getData();
-        yield CloudStoreSaved();
-      } else
-        yield CloudStoreError(
-          errorMessage: "Ha ocurrido un error. Intente guardar mas tarde.",
-        );
-    }*/ else if (event is CargarImagesEvent) {
-      imagenApp = event.imageOtherApp;
+    } else if (event is GuardarPress) {
       String url1 = await _uploadFileApp();
       bool saved = await _saveApunteApp(url1, imageRuta2);
       if (saved) {
         await _getData();
       } 
+    } else if (event is CargarImagesEvent) {
+      imagenApp = event.imageOtherApp;
     }
   }
 

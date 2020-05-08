@@ -5,9 +5,12 @@ import 'package:proyecto_app_moviles/imagenes/images.dart';
 import 'package:proyecto_app_moviles/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
+
   HomePage({
     Key key,
   }) : super(key: key);
+
+
 
   final _pages = [
     Images(),

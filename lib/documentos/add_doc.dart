@@ -28,9 +28,11 @@ class _AddDocState extends State<AddDoc> {
     addDocsBloc = BlocProvider.of(context);
 
     return Scaffold(
+      backgroundColor: BACK_COLOR2,
         appBar: AppBar(
-            backgroundColor: Color(0xFFC6D8E1),
-            title: Text("Seleccionar Documento")),
+            backgroundColor: BAR_COLOR,
+            leading: BackButton(color: Colors.white),
+            title: Text("Seleccionar documento",style: TextStyle(color: COLOR_WHI),)),
         body: BlocBuilder<DocsBloc, DocsState>(
           builder: (context, state) {
             if (state is DocGallery) {
@@ -70,9 +72,11 @@ class _AddDocState extends State<AddDoc> {
                                 ),
                               ),
                         SizedBox(height: 48),
-                        Material(color: Theme.of(context).primaryColor,
+                        Material(color: BUTTON_COLOR,
                         shape: CircleBorder(),
+
                         elevation: 3,
+                        
                                                   child: IconButton(
                             icon: Icon(Icons.insert_drive_file),
                             onPressed: () {
@@ -87,6 +91,7 @@ class _AddDocState extends State<AddDoc> {
                             Expanded(
                               child: _banSave
                                   ? RaisedButton(
+                                    color: BUTTON_SAVE,
                                     child: Text("Guardar"),
                                     onPressed: () {
                                       addDocsBloc.add(SaveDataEvent());
@@ -98,7 +103,11 @@ class _AddDocState extends State<AddDoc> {
                                     },
                                   )
                                   : Center(
-                                      child: Text("Seleccione un archivo"),
+                                      child: Text("Seleccione un archivo",
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 18),
+                                      textAlign: TextAlign.center,),
                                     ),
                             )
                           ],
